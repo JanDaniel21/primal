@@ -1,6 +1,9 @@
 // database_helper.dart
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'app_scaffold.dart';
+
+
 
 class DatabaseHelper {
   // singleton
@@ -45,6 +48,15 @@ class DatabaseHelper {
       )
     ''');
 
+    await db.execute('''
+      CREATE TABLE spendings (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category TEXT NOT NULL,
+        amount REAL NOT NULL,
+        date TEXT NOT NULL
+      )
+    ''');
+
     // Optional: insert a default test user (admin)
     await db.insert('users', {
       'username': 'admin',
@@ -55,6 +67,25 @@ class DatabaseHelper {
     await db.insert('accounts', {
       'bankName': 'AirBank',
       'balance': 12500500.00,
+    });
+
+    // Optional: insert spendings
+    await db.insert('spendings', {
+      'category': 'Food',
+      'amount': 250.75,
+      'date': '2024-06-01',
+    });
+
+    await db.insert('spendings', {
+      'category': 'Transport',
+      'amount': 120.00,
+      'date': '2024-06-02',
+    });
+
+    await db.insert('spendings', {
+      'category': 'Entertainment',
+      'amount': 300.50,
+      'date': '2024-06-03',
     });
   }
 
@@ -118,21 +149,41 @@ class DatabaseHelper {
       whereArgs: [id],
     );
   }
-Future<List<Map<String, dynamic>>> fetchAccounts() async {
-  return await getAccounts();
-}
-  
+  Future<List<Map<String, dynamic>>> fetchAccounts() async {
+    return await getAccounts();
+  }
+    
+
+    // ----------------------------
+    // NET WORTH
+    // ----------------------------
+
+    /// Returns the sum of all account balances as double.
+    Future<double> computeNetWorth() async {
+      final db = await database;
+      final result = await db.rawQuery('SELECT SUM(balance) as networth FROM accounts');
+
+      final value = result.first['networth'];
+      if (value == null) return 0.0;
+
+      // value may be int or double (or string), handle safely
+      if (value is int) return value.toDouble();
+      if (value is double) return value;
+      if (value is String) return double.tryParse(value) ?? 0.0;
+
+      return 0.0;
+    }
 
   // ----------------------------
-  // NET WORTH
+  // TOtal SPENDING 
   // ----------------------------
 
-  /// Returns the sum of all account balances as double.
-  Future<double> computeNetWorth() async {
+  /// Returns the sum of all spendings as double.
+  Future<double> computeTotalSpending() async {
     final db = await database;
-    final result = await db.rawQuery('SELECT SUM(balance) as networth FROM accounts');
+    final result = await db.rawQuery('SELECT SUM(amount) as totalspending FROM spendings');
 
-    final value = result.first['networth'];
+    final value = result.first['totalspending'];
     if (value == null) return 0.0;
 
     // value may be int or double (or string), handle safely
