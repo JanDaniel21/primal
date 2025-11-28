@@ -87,8 +87,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
 
                   SizedBox(height: 40),
-
-                  // Optional: "Tap anywhere to continue"
                   Text(
                     "Tap anywhere to continue",
                     style: TextStyle(

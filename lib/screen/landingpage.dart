@@ -69,7 +69,7 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   // ----------------------------------------------------------
-  // GOOGLE LOGIN  (placeholder until Firebase is connected)
+  // GOOGLE LOGIN
   // ----------------------------------------------------------
 Future<void> _googleLogin() async {
   setState(() {
@@ -187,7 +187,7 @@ Future<void> _googleLogin() async {
                         const SizedBox(height: 16),
 
                         // ------------------------------------
-                        // GOOGLE LOGIN BUTTON (Material style)
+                        // GOOGLE LOGIN BUTTON
                         // ------------------------------------
                         SizedBox(
                           width: double.infinity,

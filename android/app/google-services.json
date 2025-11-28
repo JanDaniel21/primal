@@ -7,48 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:257276967770:android:5183902c4c3d0a84cf9163",
+        "mobilesdk_app_id": "1:257276967770:android:c86dcd3fab4ba919cf9163",
         "android_client_info": {
-          "package_name": "com.example.flutter_application_1"
+          "package_name": "com.primal.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "257276967770-kn631cuvo9skjdkonqospgc5ofrsdtgr.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCiV2nqSeUve6-HaC2GIz6kea-JvkTyIQ0"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "257276967770-kn631cuvo9skjdkonqospgc5ofrsdtgr.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "257276967770-gteimrju4m7ci0gni2l2iuprdmbav7l5.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.flutterApplication1"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:257276967770:android:a4748c4bbaeb6ac7cf9163",
-        "android_client_info": {
-          "package_name": "primal.aggregated.bank"
-        }
-      },
-      "oauth_client": [
+          "client_id": "257276967770-fmsedt1sfhitv0qgq9rhk7c1h4ftthvp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.primal.app",
+            "certificate_hash": "93b0f024bd12be36032f77ba5b4378dff66cab0c"
+          }
+        },
         {
           "client_id": "257276967770-kn631cuvo9skjdkonqospgc5ofrsdtgr.apps.googleusercontent.com",
           "client_type": 3

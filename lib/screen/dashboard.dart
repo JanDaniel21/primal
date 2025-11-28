@@ -28,7 +28,7 @@ class DashboardPage extends StatelessWidget {
 }
 
 // -----------------------------
-// NET WORTH CARD -> Stacked Bar Chart for last 12 months
+// NET WORTH CARD
 // -----------------------------
 class NetWorthCard extends StatefulWidget {
   const NetWorthCard({super.key});
@@ -177,7 +177,7 @@ class _NetWorthCardState extends State<NetWorthCard> {
 }
 
 // -----------------------------
-// SPENDING CARD (unchanged from last version, connected to DB)
+// SPENDING CARD
 // -----------------------------
 class SpendingCard extends StatefulWidget {
   const SpendingCard({super.key});
@@ -288,7 +288,7 @@ class _SpendingCardState extends State<SpendingCard> {
 
             const SizedBox(height: 20),
 
-            // ▼▼ LABELS NOW UNDER THE PIE CHART ▼▼
+            
             if (categoryTotals.isNotEmpty)
               Column(
                 children: categoryTotals.entries.map((e) {
@@ -340,7 +340,7 @@ class _SpendingCardState extends State<SpendingCard> {
 }
 
 // -----------------------------
-// SAVINGS CARD (Dynamic - from DB)
+// SAVINGS CARD
 // -----------------------------
 class SavingsCard extends StatefulWidget {
   const SavingsCard({super.key});
